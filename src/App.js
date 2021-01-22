@@ -3,6 +3,8 @@ import './App.css';
 import React, {Component} from 'react';
 import Header from "./components/header";
 import Login from "./components/login";
+import Search from './components/search'
+import Table from "./components/table";
 
 class App extends Component {
   state={};
@@ -10,8 +12,10 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Header />
+        {/* <Header />
         <Login />
+        <Search /> */}
+        <Table />
       </div>
     );
   }
