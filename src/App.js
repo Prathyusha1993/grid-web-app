@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Login from "./components/login";
 import Search from './components/search'
 import Table from "./components/table";
+import TableInfo from './components/tableInfo'
 
 class App extends Component {
   state={};
@@ -16,7 +17,7 @@ class App extends Component {
         <Login />
         <Search />
         {/* <Table /> */}
-        
+        <TableInfo />
       </div>
     );
   }
