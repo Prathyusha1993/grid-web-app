@@ -1,40 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, Component} from 'react';
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-function Login(){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+class Login extends Component {
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+    state={
+        email: '',
+        password: '',
+    };
 
-    function handleSubmit(e){
+     handleSubmit = (e) => {
         e.preventDefault();
     }
     
-    function validateForm() {
-        return email.length > 0 && password.length> 0;
+     validateForm = () => {
+        return this.state.email.length > 0 && this.state.password.length> 0;
     }
 
-    return(
-        <div className="Login">
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="email">
-                    <Form.Label>Username: </Form.Label>
-                    <Form.Control 
-                    type="email" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} />
-                </Form.Group>
-                <Form.Group controlId="password">
-                    <Form.Label>Password: </Form.Label>
-                    <Form.Control 
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}/>
-                </Form.Group >
-                <Button type="submit" disabled={!validateForm()}>Login</Button>
-            </Form>
-        </div>
-    );
+    handleChange = (e) =>{
+        this.setState({ [e.target.name]: e.target.value})
+    }
+
+    render(){
+        return(
+            <div className="Login">
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="email">
+                        <Form.Label>Username: </Form.Label>
+                        <Form.Control 
+                        type="email" 
+                        value={this.state.email} 
+                        onChange={this.handleChange} />
+                    </Form.Group>
+                    <Form.Group controlId="password">
+                        <Form.Label>Password: </Form.Label>
+                        <Form.Control 
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}/>
+                    </Form.Group >
+                    <Button type="submit" disabled={!this.validateForm}>Login</Button>
+                </Form>
+            </div>
+        );
+    }
+    
 }
 
 export default Login;
