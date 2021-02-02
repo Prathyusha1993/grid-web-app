@@ -7,7 +7,8 @@ import Search from './components/search'
 import Table from "./components/table";
 import TableInfo from './components/tableInfo'
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-import ExpandRow from './components/expandRow'
+import DemoExpandRow from './components/demoExpandRow'
+import ReactExBoot from './components/reactExBoot'
 
 class App extends Component {
   state={
@@ -17,7 +18,8 @@ class App extends Component {
   render() {
     return(
       <div>
-        <ExpandRow />
+        <DemoExpandRow />
+        {/* <ReactExBoot /> */}
       </div>
     );
   }
