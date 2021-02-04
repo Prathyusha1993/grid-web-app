@@ -5,7 +5,15 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 const expandRow = {
   renderer: row => <div>age: {row.age}</div>
 };
-
+// {
+//     <Table striped bordered hover>
+//         <tbody>
+//             <tr>{this.handleHeaderData()}</tr>
+//                 {allItemRows}
+//             </tbody>
+//     </Table>
+//   }
+{/* <div>age: {row.age}</div> */}
 const columns = [
   {
     dataField: "id",

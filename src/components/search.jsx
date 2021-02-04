@@ -1,27 +1,44 @@
 import React, { Component } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 
+function validate(MRN) {
+  // we are going to store errors for all fields
+  // in a signle array
+  const errors = [];
+
+  if (MRN.length === 0) {
+    errors.push("atleast one field entry is required");
+  }
+  return errors;
+}
+
+
 class Search extends Component {
   state = {
-      MRN:''
-    //   touched:{
-    //       MRN: false,
-    //       firstName: false
-    //   }
+    MRN:"",
+    errors:[]
   };
 
-//   handleBlur = (field) => (event) => {
-//       this.setState({
-//           touched: {...this.state.touched, [field]: true},
-//       })
+// validate = (MRN) => {
+//   const errors = [];
+//   if(MRN.length === 0){
+//     errors.push("atleast one field entry is required");
 //   }
+//   return errors;
+// }
 
-handleSearch = () => {
-    this.props.onButtonClick(this.state.MRN);
-    this.setState({ MRN: ''})
+handleSearch = (e) => {
+  e.preventDefault();
+    const {MRN} = this.state;
+    const errors = validate(MRN);
+    if(errors.length > 0){
+      this.setState({ errors });
+      return;
+    }
 }
 
   render() {
+    const { errors } = this.state
       const mystyle = {
           position: "relative",
           left: "10%",
@@ -29,11 +46,12 @@ handleSearch = () => {
       };
     return (
       <div className="search">
-        <Form>
+        <Form onSubmit = {this.handleSearch}>
+          {errors.map(error => (<p style={{color:'red'}} key={error}>Error: {error}</p>))}
           <Form.Row>
             <Col xs={2}>
               <Form.Label className="font-weight-bold">MRN </Form.Label>
-              <Form.Control type="number" placeholder="MRN"  />
+              <Form.Control type="text" placeholder="MRN"  />
             </Col>
             <Col>
               <Form.Label className="font-weight-bold">FirstName </Form.Label>
@@ -57,7 +75,7 @@ handleSearch = () => {
             </Col>
             <Col>
             <Form.Label> </Form.Label>
-              <Button style={mystyle} type="submit" disabled={!this.state.MRN} onClick={this.handleSearch} >Search</Button>
+              <Button style={mystyle} type="submit" >Search</Button>
             </Col>
           </Form.Row>
         </Form>

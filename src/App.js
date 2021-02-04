@@ -9,17 +9,22 @@ import TableInfo from './components/tableInfo'
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import DemoExpandRow from './components/demoExpandRow'
 import ReactExBoot from './components/reactExBoot'
+import AgGrid from './components/agGrid'
+import DemoAgGrid from './components/demoagGrid'
+import GridExample from './components/gridExample';
 
 class App extends Component {
   state={
-    user: null
+  
   };
 
   render() {
     return(
       <div>
-        <DemoExpandRow />
-        {/* <ReactExBoot /> */}
+        <Search />
+        <br />
+        <AgGrid />
+        {/* <GridExample /> */}
       </div>
     );
   }
