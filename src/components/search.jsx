@@ -98,9 +98,9 @@ class Search extends Component {
 
             <Form.Group as={Col} xs="auto" controlId="formGridName">
             <Form.Label> </Form.Label>
-            <Button style={mystyle} type="submit">
+            <button style={mystyle} type="submit" className="btn btn-outline-success my-2 my-sm-0">
               Search
-            </Button>
+            </button>
             </Form.Group>
           </Form.Row>
         </Form>

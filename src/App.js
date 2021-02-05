@@ -10,6 +10,8 @@ import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import DemoExpandRow from './components/demoExpandRow'
 import ReactExBoot from './components/reactExBoot'
 import AgGrid from './components/agGrid'
+import AgGrid2 from './components/agGrid2'
+import AgGridv3 from './components/agGridv3'
 import DemoAgGrid from './components/demoagGrid'
 import GridExample from './components/gridExample';
 
@@ -26,12 +28,20 @@ class App extends Component {
         <br />
         <Search />
         <br />
-        <AgGrid />
+        {/* <AgGrid /> */}
         <br />
         {/* <Login /> */}
+        {/* <GridExample /> */}
+        <AgGridv3 />
       </div>
     );
   }
+
+  // render() {
+  //   return(
+  //     <AgGrid2 />
+  //   );
+  // }
 }
 
 export default App;

@@ -4,8 +4,8 @@ import { Navbar } from 'react-bootstrap';
 function Header () {
     return (
         <div>
-            <Navbar bg="light">
-            <Navbar.Brand href="#home">L O G O</Navbar.Brand>
+            <Navbar class="navbar navbar-light" style={{backgroundColor: "lightgreen"}}>
+            <Navbar.Brand href="#home" >PathGroup</Navbar.Brand>
             </Navbar>
         </div>
     );

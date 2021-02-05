@@ -50,76 +50,14 @@ class GridExample extends Component {
               field: 'switchCode',
               minWidth: 150,
             },
-            { field: 'callId' },
-            { field: 'direction' },
-            {
-              field: 'number',
-              minWidth: 150,
-            },
-            {
-              field: 'duration',
-              valueFormatter: "x.toLocaleString() + 's'",
-            },
-            {
-              field: 'switchCode',
-              minWidth: 150,
-            },
-            { field: 'callId' },
-            { field: 'direction' },
-            {
-              field: 'number',
-              minWidth: 150,
-            },
-            {
-              field: 'duration',
-              valueFormatter: "x.toLocaleString() + 's'",
-            },
-            {
-              field: 'switchCode',
-              minWidth: 150,
-            },
           ],
           defaultColDef: { flex: 1 },
         },
         getDetailRowData: function (params) {
-          params.successCallback(this.state.callRecords);
-        }.bind(this),
+          params.successCallback(params.data.callRecords);
+        },
       },
       rowData: null,
-      callRecords: [
-        {
-          name: "susan",
-          callId: 579,
-          duration: 23,
-          switchCode: "SW5",
-          direction: "Out",
-          number: "(02) 47485405",
-        },
-        {
-          name: "susan",
-          callId: 580,
-          duration: 52,
-          switchCode: "SW3",
-          direction: "In",
-          number: "(02) 32367069",
-        },
-        {
-          name: "susan",
-          callId: 581,
-          duration: 39,
-          switchCode: "SW7",
-          direction: "Out",
-          number: "(07) 13532649",
-        },
-        {
-          name: "susan",
-          callId: 582,
-          duration: 51,
-          switchCode: "SW6",
-          direction: "Out",
-          number: "(08) 45645627",
-        }
-      ]
     };
   }
 
@@ -142,7 +80,7 @@ class GridExample extends Component {
 
   onFirstDataRendered = (params) => {
     setTimeout(function () {
-      params.api.getDisplayedRowAtIndex(0).setExpanded(true);
+      params.api.getDisplayedRowAtIndex(1).setExpanded(true);
     }, 0);
   };
 
