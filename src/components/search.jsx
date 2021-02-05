@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 
 function validate(MRN) {
-  // we are going to store errors for all fields
-  // in a signle array
   const errors = [];
 
   if (MRN.length === 0) {

@@ -4,16 +4,9 @@ import React, {Component} from 'react';
 import Header from "./components/header";
 import Login from "./components/login";
 import Search from './components/search'
-import Table from "./components/table";
-import TableInfo from './components/tableInfo'
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-import DemoExpandRow from './components/demoExpandRow'
-import ReactExBoot from './components/reactExBoot'
 import AgGrid from './components/agGrid'
-import AgGrid2 from './components/agGrid2'
-import AgGridv3 from './components/agGridv3'
-import DemoAgGrid from './components/demoagGrid'
-import GridExample from './components/gridExample';
+
 
 class App extends Component {
   state={
@@ -23,25 +16,16 @@ class App extends Component {
   render() {
     return(
       <div>
-        {/* <DemoAgGrid /> */}
         <Header />
         <br />
         <Search />
         <br />
-        {/* <AgGrid /> */}
         <br />
-        {/* <Login /> */}
-        {/* <GridExample /> */}
-        <AgGridv3 />
+        <AgGrid />
       </div>
     );
   }
 
-  // render() {
-  //   return(
-  //     <AgGrid2 />
-  //   );
-  // }
 }
 
 export default App;
