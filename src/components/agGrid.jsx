@@ -52,24 +52,44 @@ class AgGrid extends Component {
             {Invoice_Num: 1351, Adm_Visit_Date: "12-23-2020",Discharge_Date: "12-27-2020",Patient_First_Name: "SIMONE B",Patient_Last_Name:"ANTINORI", MRN: 21070804153,DOB: "5/16/1969",Sex: "female",SSN: "557-73-3905",Street_Addr:"480 LUCERNE AVE,Tampa,FL,33606", Guarantor_Name:"Elena",Guar_Street_Addr:"",Hospital:"ST. JOSEPH'S HOSPITAL",RefferinigPhysician:"CAMPBELL,SYLVIA", Pathologist:"JEFFREY MD,P.BRIAN", Invoice_FSC_List:"12", Total_Charges:"1368",Invoice_Balance:"0" },
             {Invoice_Num: 1352, Adm_Visit_Date: "12-23-2020",Discharge_Date: "12-27-2020",Patient_First_Name: "SIMONE B",Patient_Last_Name:"ANTINORI", MRN: 21070804153,DOB: "5/16/1969",Sex: "female",SSN: "557-73-3905",Street_Addr:"480 LUCERNE AVE,Tampa,FL,33606", Guarantor_Name:"Elena",Guar_Street_Addr:"",Hospital:"ST. JOSEPH'S HOSPITAL",RefferinigPhysician:"CAMPBELL,SYLVIA", Pathologist:"JEFFREY MD,P.BRIAN", Invoice_FSC_List:"12", Total_Charges:"1368",Invoice_Balance:"0" }
         ],
-        defaultColDef: {sortable:true, editable:true, filter:true},
+        rowDetailData: [
+            {ICD_Codes:" C50.412 Malig neoplasm of upper-outer ,C50.612 Malignant neoplasm of axillary", Insurance_Details:"UHC Chc Chc Plus Atlanta,PO BOX 740800,ATLANTA, GA,30374", Txn_seq:"1", PostedDate:"7/9/2019", ServiceDate:"6/25/2019", CPT_Code:"88342", 
+            CDM_Code:"4920022", CPT_Description:"IMMUNOPEROXIDASE INITIAL SPECIMEN", Comments:"Provider", Charges:"380", Pay_Amount:"0",Adj_Amount: "0",
+            Credit_Amount:"0", FSC_Mnemonic:"DNB", FSC_Name:"DO NOT BILL", Batch_Num:"159176", Pay_Code:"97", Pay_Code_Desc:"CHARGE CORRECTION", LP_Pay_Code:"",
+            LP_Pay_Code_Desc:"", LP_PostDate:"", LP_Approved_Amount:"0", LP_Pay_Amt:"0", LP_Adj_Amt:"0", LP_Coins_Amt:"0", LP_Pat_Res:"0", LP_Rej_Code:""},
+
+            {ICD_Codes:" C50.412 Malig neoplasm of upper-outer ,C50.612 Malignant neoplasm of axillary", Insurance_Details:"UHC Chc Chc Plus Atlanta,PO BOX 740800,ATLANTA, GA,30374", Txn_seq:"1", PostedDate:"7/9/2019", ServiceDate:"6/25/2019", CPT_Code:"88342", 
+            CDM_Code:"4920022", CPT_Description:"IMMUNOPEROXIDASE INITIAL SPECIMEN", Comments:"Provider", Charges:"380", Pay_Amount:"0",Adj_Amount: "0",
+            Credit_Amount:"0", FSC_Mnemonic:"DNB", FSC_Name:"DO NOT BILL", Batch_Num:"159176", Pay_Code:"97", Pay_Code_Desc:"CHARGE CORRECTION", LP_Pay_Code:"",
+            LP_Pay_Code_Desc:"", LP_PostDate:"", LP_Approved_Amount:"0", LP_Pay_Amt:"0", LP_Adj_Amt:"0", LP_Coins_Amt:"0", LP_Pat_Res:"0", LP_Rej_Code:""},
+
+            {ICD_Codes:" C50.412 Malig neoplasm of upper-outer ,C50.612 Malignant neoplasm of axillary", Insurance_Details:"UHC Chc Chc Plus Atlanta,PO BOX 740800,ATLANTA, GA,30374", Txn_seq:"1", PostedDate:"7/9/2019", ServiceDate:"6/25/2019", CPT_Code:"88342", 
+            CDM_Code:"4920022", CPT_Description:"IMMUNOPEROXIDASE INITIAL SPECIMEN", Comments:"Provider", Charges:"380", Pay_Amount:"0",Adj_Amount: "0",
+            Credit_Amount:"0", FSC_Mnemonic:"DNB", FSC_Name:"DO NOT BILL", Batch_Num:"159176", Pay_Code:"97", Pay_Code_Desc:"CHARGE CORRECTION", LP_Pay_Code:"",
+            LP_Pay_Code_Desc:"", LP_PostDate:"", LP_Approved_Amount:"0", LP_Pay_Amt:"0", LP_Adj_Amt:"0", LP_Coins_Amt:"0", LP_Pat_Res:"0", LP_Rej_Code:""},
+
+            {ICD_Codes:" C50.412 Malig neoplasm of upper-outer ,C50.612 Malignant neoplasm of axillary", Insurance_Details:"UHC Chc Chc Plus Atlanta,PO BOX 740800,ATLANTA, GA,30374", Txn_seq:"1", PostedDate:"7/9/2019", ServiceDate:"6/25/2019", CPT_Code:"88342", 
+            CDM_Code:"4920022", CPT_Description:"IMMUNOPEROXIDASE INITIAL SPECIMEN", Comments:"Provider", Charges:"380", Pay_Amount:"0",Adj_Amount: "0",
+            Credit_Amount:"0", FSC_Mnemonic:"DNB", FSC_Name:"DO NOT BILL", Batch_Num:"159176", Pay_Code:"97", Pay_Code_Desc:"CHARGE CORRECTION", LP_Pay_Code:"",
+            LP_Pay_Code_Desc:"", LP_PostDate:"", LP_Approved_Amount:"0", LP_Pay_Amt:"0", LP_Adj_Amt:"0", LP_Coins_Amt:"0", LP_Pat_Res:"0", LP_Rej_Code:""},
+        ],
+        defaultColDef: {sortable:true, filter:true},
         detailCellRendererParams: {
             detailGridOptions: {
               columnDefs: [
-                { field: 'ICD_Codes' },
-                { field: 'Insurance' },
-                {field: 'Ins_Street_Addr',
-                //   minWidth: 150,
-                },
-                {field: 'Ins_Telephone_No',},
-                {field: 'Txn_ser',
-                //   minWidth: 150,
+                { field: 'ICD_Codes',
+                minWidth: 550, },
+                { field: 'Insurance_Details',
+                minWidth: 450, },
+                {field: 'Txn_seq',
+                   minWidth: 100,
                 },
                 { field: 'PostedDate' },
                 { field: 'ServiceDate' },
                 { field: 'CPT_Code' },
                 { field: 'CDM_Code' },
-                { field: 'CPT_Description' },
+                { field: 'CPT_Description',
+                minWidth: 350, },
                 { field: 'Comments' },
                 { field: 'Charges' },
                 { field: 'Pay_Amount' },
@@ -92,10 +112,26 @@ class AgGrid extends Component {
             //   defaultColDef: { flex: 1 },
             },
             getDetailRowData: function (params) {
-              params.successCallback(params.data.callRecords);
-            },
+                //console.log(this);
+                //console.log(params);
+            //     const data = this.handleDetailRowsData;
+            //   params.successCallback(data);
+            this.handleDetailRowsData(params);
+            }.bind(this),
           },
     };
+
+    handleDetailRowsData = (params) => {
+        //const rows = this.state.rowData;
+        // this.setState({ rows })
+        //return rows;
+        params.successCallback(this.state.rowDetailData);
+    }
+
+    onGridReady = (params) => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
 
     render(){
         return(
@@ -107,6 +143,7 @@ class AgGrid extends Component {
                     defaultColDef={this.state.defaultColDef}
                     masterDetail={true}
                     detailCellRendererParams={this.state.detailCellRendererParams}
+                    onGridReady={this.onGridReady}
                 />
             </div>
         );

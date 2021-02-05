@@ -21,10 +21,14 @@ class App extends Component {
   render() {
     return(
       <div>
+        {/* <DemoAgGrid /> */}
+        <Header />
+        <br />
         <Search />
         <br />
         <AgGrid />
-        {/* <GridExample /> */}
+        <br />
+        {/* <Login /> */}
       </div>
     );
   }

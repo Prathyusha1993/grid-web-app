@@ -53,11 +53,17 @@ class GridExample extends Component {
           defaultColDef: { flex: 1 },
         },
         getDetailRowData: function (params) {
-          params.successCallback(params.data.callRecords);
-        },
+          //params.successCallback(params.data.callRecords);
+          this.handleRowData(params);
+        }.bind(this),
       },
       rowData: null,
     };
+  }
+
+  handleRowData = (params) => {
+    params.successCallback(params.data.callRecords);
+    console.log(this);
   }
 
   onGridReady = (params) => {
@@ -89,7 +95,7 @@ class GridExample extends Component {
 
   render() {
     return (
-      <div style={{ width: '100%', height: '350px' }}>
+      <div style={{ width: '100%', height: '350px' }} className="ag-theme-alpine">
         <div
           id="myGrid"
           style={{
