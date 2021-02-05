@@ -50,12 +50,12 @@ class Search extends Component {
               <Form.Control type="number" placeholder="num" />
             </Form.Group>
 
-            <Form.Group as={Col} xs="auto" controlId="formGridFirstName">
+            <Form.Group as={Col} xs="auto" controlId="formGridFirstName" >
               <Form.Label className="font-weight-bold">FirstName </Form.Label>
               <Form.Control type="text" placeholder="name" />
             </Form.Group>
 
-            <Form.Group as={Col} xs="auto" controlId="formGridLastName">
+            <Form.Group as={Col} xs="auto" controlId="formGridLastName" >
               <Form.Label className="font-weight-bold">LastName </Form.Label>
               <Form.Control type="text" placeholder="name" />
             </Form.Group>
