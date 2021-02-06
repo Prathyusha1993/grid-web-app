@@ -8,7 +8,8 @@ import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 import {masterRowData} from './data';
-import {rowDetailData} from './detailData'
+import {rowDetailData} from './detailData';
+import Search from './search'
 
 class AgGrid extends Component {
   constructor(props) {
@@ -206,7 +207,10 @@ class AgGrid extends Component {
 
   render() {
     return (
-      <div style={{ width: '100%', height: '550px', }}>
+      <div>
+        <Search />
+        <br />
+        <div style={{ width: '100%', height: '550px', }}>
         <div
           id="myGrid"
           style={{
@@ -227,6 +231,8 @@ class AgGrid extends Component {
           />
         </div>
       </div>
+      </div>
+      
     );
   }
 }

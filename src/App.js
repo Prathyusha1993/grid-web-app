@@ -15,14 +15,17 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-        <Header />
-        <br />
-        <Search />
-        <br />
-        <br />
-        <AgGrid />
-      </div>
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Login />
+            </Route>
+          </Switch>
+          <AgGrid />
+        </div>
+      </Router>
     );
   }
 
