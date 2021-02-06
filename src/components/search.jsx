@@ -31,7 +31,9 @@ class Search extends Component {
     const { errors } = this.state;
     const mystyle = {
       position: "relative",
-      top: "40%",
+      top: "45%",
+      width: "200px",
+      border:"1px solid black"
     };
     return (
       <div className="container">
@@ -43,62 +45,65 @@ class Search extends Component {
             </p>
           ))}
           <Form.Row>
-            <Form.Group as={Col} xs="auto" controlId="formGridInvoiceNum" className="col col-lg-2">
-              <Form.Label className="font-weight-bold">InvoiceNum </Form.Label>
-              <Form.Control type="number" placeholder="num" />
+            <Form.Group as={Col} xs="auto" controlId="formGridInvoiceNum" >
+              <Form.Label className="font-weight-bold">Invoice # </Form.Label>
+              <Form.Control type="number" style={{border:"1px solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridFirstName" >
-              <Form.Label className="font-weight-bold">FirstName </Form.Label>
-              <Form.Control type="text" placeholder="name" />
+              <Form.Label className="font-weight-bold">First Name </Form.Label>
+              <Form.Control type="text" style={{border:"1px solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridLastName" >
-              <Form.Label className="font-weight-bold">LastName </Form.Label>
-              <Form.Control type="text" placeholder="name" />
+              <Form.Label className="font-weight-bold">Last Name </Form.Label>
+              <Form.Control type="text" style={{border:"1px solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridMRN">
               <Form.Label className="font-weight-bold">MRN </Form.Label>
-              <Form.Control type="text" placeholder="MRN" />
+              <Form.Control type="text" style={{border:"1px solid black"}}/>
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} xs="auto" controlId="formGridDOS">
+            <Form.Group as={Col} xs="auto" controlId="formGridDOS" className="col-md-3 mb-3">
               <Form.Label className="font-weight-bold">
-                DateOfService{" "}
+                Date Of Service
               </Form.Label>
               <Form.Control
                 type="date"
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dos"
+                style={{border:"1px solid black"}}
               />
             </Form.Group>
 
-            <Form.Group as={Col} xs="auto" controlId="formGridDOB">
-              <Form.Label className="font-weight-bold">DateOfBirth </Form.Label>
+            <Form.Group as={Col} xs="auto" controlId="formGridDOB" className="col-md-3 mb-3">
+              <Form.Label className="font-weight-bold">Date Of Birth </Form.Label>
               <Form.Control
                 type="date"
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dob"
+                style={{border:"1px solid black"}}
               />
             </Form.Group>
 
-            <Form.Group as={Col} xs="auto" controlId="formGridName">
+            <Form.Group as={Col} xs="auto" controlId="formGridName" className="col-md-3 mb-3">
               <Form.Label className="font-weight-bold">
-                Guarantor_Name{" "}
+                Guarantor Name
               </Form.Label>
-              <Form.Control type="text" placeholder="name" />
+              <Form.Control type="text" 
+              style={{border:"1px solid black"}}/>
             </Form.Group>
 
-            <Form.Group as={Col} xs="auto" controlId="formGridName">
+            <Form.Group as={Col} xs="auto" controlId="formGridName" className="col-md-3 mb-3">
             <Form.Label> </Form.Label>
-            <button style={mystyle} type="submit" className="btn btn-outline-success my-2 my-sm-0">
+            <Button style={mystyle} type="submit" >
               Search
-            </button>
+            </Button>
             </Form.Group>
           </Form.Row>
         </Form>
