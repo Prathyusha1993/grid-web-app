@@ -33,7 +33,6 @@ class Search extends Component {
       position: "relative",
       top: "45%",
       width: "200px",
-      border:"1px solid black"
     };
     return (
       <div className="container">
@@ -47,22 +46,22 @@ class Search extends Component {
           <Form.Row>
             <Form.Group as={Col} xs="auto" controlId="formGridInvoiceNum" >
               <Form.Label className="font-weight-bold">Invoice # </Form.Label>
-              <Form.Control type="number" style={{border:"1px solid black"}}/>
+              <Form.Control type="number" style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridFirstName" >
               <Form.Label className="font-weight-bold">First Name </Form.Label>
-              <Form.Control type="text" style={{border:"1px solid black"}}/>
+              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridLastName" >
               <Form.Label className="font-weight-bold">Last Name </Form.Label>
-              <Form.Control type="text" style={{border:"1px solid black"}}/>
+              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridMRN">
               <Form.Label className="font-weight-bold">MRN </Form.Label>
-              <Form.Control type="text" style={{border:"1px solid black"}}/>
+              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
             </Form.Group>
           </Form.Row>
 
@@ -76,7 +75,7 @@ class Search extends Component {
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dos"
-                style={{border:"1px solid black"}}
+                style={{border:".5pxpx solid black"}}
               />
             </Form.Group>
 
@@ -87,7 +86,7 @@ class Search extends Component {
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dob"
-                style={{border:"1px solid black"}}
+                style={{border:".5pxpx solid black"}}
               />
             </Form.Group>
 
@@ -96,7 +95,7 @@ class Search extends Component {
                 Guarantor Name
               </Form.Label>
               <Form.Control type="text" 
-              style={{border:"1px solid black"}}/>
+              style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridName" className="col-md-3 mb-3">

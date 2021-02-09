@@ -18,11 +18,13 @@ class App extends Component {
       <Router>
         <div>
           <Header />
-          <Switch>
+          <br />
+          {/* <Switch>
             <Route exact path="/">
               <Login />
             </Route>
-          </Switch>
+          </Switch> */}
+          <Search />
           <AgGrid />
         </div>
       </Router>

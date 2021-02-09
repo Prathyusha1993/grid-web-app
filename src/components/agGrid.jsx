@@ -10,6 +10,7 @@ import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 import {masterRowData} from './data';
 import {rowDetailData} from './detailData';
 import Search from './search'
+//import detailServiceApi from '../api/detailServiceApi'
 
 class AgGrid extends Component {
   constructor(props) {
@@ -118,7 +119,7 @@ class AgGrid extends Component {
                 field: 'Comments',
                 minWidth: 200,
                 resizable: true},
-                { headerName: 'Insurance					',
+                { headerName: 'Insurance',
                 field: 'Insurance_Details',
                 minWidth: 450, 
                 resizable: true},
@@ -179,6 +180,7 @@ class AgGrid extends Component {
           params.successCallback(rowDetailData);
         },
       },
+      //rowData: [],
     };
   }
 
@@ -191,12 +193,49 @@ class AgGrid extends Component {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
+    // const requestOptions = {
+    //   method: 'POST',
+    //   mode: 'no-cors',
+    //   headers: { 'Content-Type': 'application/json',
+    //              'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
+    //   body: JSON.stringify({
+    //       'Invoice_Num' : '',
+    //       'MRN': '',
+    //       'Patient_First_Name' :'',
+    //       'Patient_Last_Name' : '',
+    //       'DateOfBirth' : '',
+    //       'Guarantor_Name' : '',
+    //       'DateOfService' : ''
+    //   })
+    // }
+    // console.log(requestOptions);
+
+    // fetch('http://34.200.212.150/assocpath-webapi/api/dashboard/search', {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json',
+    //             'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
+    //   body : JSON.stringify({
+    //     'Invoice_Num' : '',
+    //     'MRN': '21070804153',
+    //     'Patient_First_Name' :'',
+    //     'Patient_Last_Name' : '',
+    //     'DateOfBirth' : '',
+    //     'Guarantor_Name' : '',
+    //     'DateOfService' : ''
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     this.setState({ rowData: data });
+    //   });
+
     // fetch('https://www.ag-grid.com/example-assets/master-detail-data.json')
     //   .then(response => response.json())
     //   .then(data => {
     //     this.setState({ rowData: data });
     //   });
-    this.setState({rowData: masterRowData});
+     this.setState({rowData: masterRowData});
   };
 
 //   onFirstDataRendered = (params) => {
@@ -208,7 +247,7 @@ class AgGrid extends Component {
   render() {
     return (
       <div>
-        <Search />
+        {/* <Search /> */}
         <br />
         <div style={{ width: '100%', height: '550px', }}>
         <div
