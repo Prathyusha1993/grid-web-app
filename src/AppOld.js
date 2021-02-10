@@ -3,24 +3,15 @@ import './App.css';
 import React, {Component} from 'react';
 import Header from "./components/header";
 import Login from "./components/login";
-import Search from './components/Search'
+import Search from './components/search'
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-import AgGrid from './components/AgGrid';
+import AgGrid from './components/AgGrid'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchParams: {}
-    }
-  }
-
-  handleSearch = (searchParams) => {
-    this.setState({
-      searchParams: searchParams
-    })
-  }
+  state={
+  
+  };
 
   render() {
     return(
@@ -33,13 +24,8 @@ class App extends Component {
               <Login />
             </Route>
           </Switch> */}
-          <Search 
-            onSearch={this.handleSearch}
-          />
-          <AgGrid
-            searchParams={this.state.searchParams}
-          />
-          {/* <AgGrid /> */}
+          <Search />
+          <AgGrid />
         </div>
       </Router>
     );
@@ -48,4 +34,21 @@ class App extends Component {
 }
 
 export default App;
+
+
+{/* <div>
+        <Router>
+          <Header />
+          {!this.state.user ? (
+            <Login />
+          ): (
+            <Link to="/" onClick={this.logout}>Logout</Link>
+          )}
+          <Search />
+          <TableInfo />
+        </Router>
+         <Switch>
+          <Route />    first i have to kepp search and tableinfo in one file and then route that path to login 
+        </Switch> 
+      </div> */}
     

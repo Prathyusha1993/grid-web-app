@@ -37,35 +37,27 @@ class Search extends Component {
     }
   };
 
-  // handleSubmit = ( e ) => {
-  //   e.preventDefault();
-  //   fetch('http://34.200.212.150/assocpath-webapi/api/dashboard/search', {
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json',
-  //               'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
-  //     body : JSON.stringify({
-  //       'Invoice_Num' : '9771458',
-  //       'MRN': '21070804153',
-  //       'Patient_First_Name' :'',
-  //       'Patient_Last_Name' : '',
-  //       'DateOfBirth' : '',
-  //       'Guarantor_Name' : '',
-  //       'DateOfService' : ''
-  //     })
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       this.setState({ results: data.data });
-  //     });
-  // }
-
-  handleSubmit = (e) => {
+  handleSubmit = ( e ) => {
     e.preventDefault();
-    const searchParams = {
-      Invoice_Num: this.state.Invoice_Num
-    }; // construct from state 
-    this.props.onSearch(searchParams);
+    fetch('http://34.200.212.150/assocpath-webapi/api/dashboard/search', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',
+                'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
+      body : JSON.stringify({
+        'Invoice_Num' : '9771458',
+        'MRN': '21070804153',
+        'Patient_First_Name' :'',
+        'Patient_Last_Name' : '',
+        'DateOfBirth' : '',
+        'Guarantor_Name' : '',
+        'DateOfService' : ''
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ results: data.data });
+      });
   }
 
   handleChange = (e) => {

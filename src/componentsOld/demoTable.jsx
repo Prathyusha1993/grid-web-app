@@ -7,7 +7,7 @@ class DemoTable extends COmponent {
              {"id":3, "title":'Gameover', "stock":'10', "rate":'2'},
              {"id":4,"title":'Evaru', "stock":'8', "rate":'3.5'},
              {"id":5, "title":'Sahoo', "stock":'9', "rate":'3'}],
-             headings: ['id','title','stock','rate']
+        headings: ['id','title','stock','rate']
     };
 
     handleTableHeader = () => {
