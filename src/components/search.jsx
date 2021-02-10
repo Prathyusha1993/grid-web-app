@@ -11,10 +11,20 @@ function validate(MRN) {
 }
 
 class Search extends Component {
-  state = {
-    MRN: "",
-    errors: [],
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      MRN: "",
+      errors: [],
+      Invoice_Num:"",
+      Patient_First_Name:"",
+      Patient_Last_Name:"",
+      DateOfBirth:"",
+      Guarantor_Name:"",
+      DateOfService:"",
+      results: []
+    }
+  }
 
 
   handleSearch = (e) => {
@@ -27,6 +37,33 @@ class Search extends Component {
     }
   };
 
+  handleSubmit = ( e ) => {
+    e.preventDefault();
+    fetch('http://34.200.212.150/assocpath-webapi/api/dashboard/search', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',
+                'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
+      body : JSON.stringify({
+        'Invoice_Num' : '',
+        'MRN': '21070804153',
+        'Patient_First_Name' :'',
+        'Patient_Last_Name' : '',
+        'DateOfBirth' : '',
+        'Guarantor_Name' : '',
+        'DateOfService' : ''
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ results: data.data });
+      });
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name] : e.target.value});
+  }
+
   render() {
     const { errors } = this.state;
     const mystyle = {
@@ -37,31 +74,31 @@ class Search extends Component {
     return (
       <div className="container">
         <div className="row justify-content-md-center">
-        <Form onSubmit={this.handleSearch}>
-          {errors.map((error) => (
+        <Form onSubmit={this.handleSubmit}>
+          {/* {errors.map((error) => (
             <p style={{ color: "red" }} key={error}>
               Error: {error}
             </p>
-          ))}
+          ))} */}
           <Form.Row>
             <Form.Group as={Col} xs="auto" controlId="formGridInvoiceNum" >
               <Form.Label className="font-weight-bold">Invoice # </Form.Label>
-              <Form.Control type="number" style={{border:".5pxpx solid black"}}/>
+              <Form.Control type="number" name="Invoice_Num" value={this.state.Invoice_Num} onChange={this.handleChange}  style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridFirstName" >
               <Form.Label className="font-weight-bold">First Name </Form.Label>
-              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
+              <Form.Control type="text"  name="Patient_First_Name" value={this.state.Patient_First_Name}  onChange={this.handleChange}style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridLastName" >
               <Form.Label className="font-weight-bold">Last Name </Form.Label>
-              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
+              <Form.Control type="text" name="Patient_Last_Name" value={this.state.Patient_Last_Name}  onChange={this.handleChange} style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
             <Form.Group as={Col} xs="auto" controlId="formGridMRN">
               <Form.Label className="font-weight-bold">MRN </Form.Label>
-              <Form.Control type="text" style={{border:".5pxpx solid black"}}/>
+              <Form.Control type="text"  name="MRN" value={this.state.MRN} onChange={this.handleChange} style={{border:".5pxpx solid black"}}/>
             </Form.Group>
           </Form.Row>
 
@@ -75,6 +112,9 @@ class Search extends Component {
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dos"
+                value={this.state.DateOfService}
+                name="DateOfService"
+                onChange={this.handleChange}
                 style={{border:".5pxpx solid black"}}
               />
             </Form.Group>
@@ -86,6 +126,9 @@ class Search extends Component {
                 min="1900-01-01"
                 max="2999-12-31"
                 placeholder="dob"
+                value={this.state.DateOfBirth}
+                name="DateOfBirth"
+                onChange={this.handleChange}
                 style={{border:".5pxpx solid black"}}
               />
             </Form.Group>
@@ -95,6 +138,9 @@ class Search extends Component {
                 Guarantor Name
               </Form.Label>
               <Form.Control type="text" 
+              value={this.state.Guarantor_Name}
+              name="Guarantor_Name"
+              onChange={this.handleChange}
               style={{border:".5pxpx solid black"}}/>
             </Form.Group>
 
