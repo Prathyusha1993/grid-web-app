@@ -1,11 +1,30 @@
-import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import React from "react";
+import { Navbar } from "react-bootstrap";
+import Logout from "./Logout";
+import { isUserLoggedIn } from "../utils/util";
 
-function Header () {
+const getLoggedInUserEmail = () => {
+    return localStorage.getItem("USER-EMAIL");
+};
+
+function Header() {
     return (
         <div>
-            <Navbar className="navbar navbar-light" style={{backgroundColor: "lightgreen"}}>
-            <Navbar.Brand href="#home" >PathGroup</Navbar.Brand>
+            <Navbar
+                class="navbar navbar-light"
+                style={{ background: "#4CAF50" }}
+            >
+                <Navbar.Brand>PathGroup</Navbar.Brand>
+                {isUserLoggedIn() && (
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text className="font-weight-bold">
+                            Email: {getLoggedInUserEmail()}
+                        </Navbar.Text>
+                        <Navbar.Text>
+                            <Logout />
+                        </Navbar.Text>
+                    </Navbar.Collapse>
+                )}
             </Navbar>
         </div>
     );

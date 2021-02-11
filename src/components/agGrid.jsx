@@ -4,6 +4,9 @@ import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-mod
 import { MasterDetailModule } from "@ag-grid-enterprise/master-detail";
 import { MenuModule } from "@ag-grid-enterprise/menu";
 import { ColumnsToolPanelModule } from "@ag-grid-enterprise/column-tool-panel";
+import { AllModules } from '@ag-grid-enterprise/all-modules';
+import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
+import '@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css';
 import "@ag-grid-community/core/dist/styles/ag-grid.css";
 import "@ag-grid-community/core/dist/styles/ag-theme-alpine.css";
 import { fetchInvoices, fetchInvoiceDetails } from "../services/invoiceService";
@@ -19,6 +22,7 @@ class AgGrid extends Component {
                 MasterDetailModule,
                 MenuModule,
                 ColumnsToolPanelModule,
+                AllModules
             ],
             rowData: [],
             columnDefs: [
@@ -30,13 +34,13 @@ class AgGrid extends Component {
                 },
                 {
                     headerName: "Adm/Visit Date",
-                    field: "Adm_Visit_Date",
+                    field: "Adm_Visit_Date_String",
                     minWidth: 150,
                     resizable: true,
                 },
                 {
                     headerName: "Discharge Date",
-                    field: "Discharge_Date",
+                    field: "Discharge_Date_String",
                     minWidth: 150,
                     resizable: true,
                 },
@@ -329,8 +333,6 @@ class AgGrid extends Component {
     onGridReady = (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
-
-        //this.fetchAndUpdateInvoicesInState();
     };
 
     render() {

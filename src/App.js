@@ -1,32 +1,48 @@
 //import logo from './logo.svg';
 import "./App.css";
 import React, { Component } from "react";
-import Header from "./components/header";
 import Login from "./components/login";
-import { Switch, Route, NavLink, BrowserRouter as Router } from "react-router-dom";
+import {
+    Switch,
+    Route,
+    Redirect,
+    BrowserRouter as Router,
+} from "react-router-dom";
 import Dashboard from "./components/Dashboard";
+import { isUserLoggedIn } from "./utils/util";
 
 class App extends Component {
 
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <div className="header">
-            <Header to="/login"/>
-          </div>
-          <div className="content">
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/dashboard" component={Dashboard} />
-            </Switch>
-          </div>
-        </Router>
-      </div>
-    );
-  }
+    conditionalRender = () => {
+        if(isUserLoggedIn()) {
+            return <Dashboard />
+        } else {
+            return <Login />;
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Router>
+                    <div>
+                        <Route 
+                            exact 
+                            path="/" 
+                            render={() => this.conditionalRender()} />
+                        <Route 
+                            exact 
+                            path="/login" 
+                            render={() => this.conditionalRender()} />
+                        <Route 
+                            exact 
+                            path="/dashboard" 
+                            render={() => this.conditionalRender()} />
+                    </div>
+                </Router>
+            </div>
+        );
+    }
 }
 
 export default App;
-
-
