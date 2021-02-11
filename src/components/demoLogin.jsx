@@ -1,59 +1,23 @@
 import React, { useState, Component} from 'react';
-import {Redirect} from 'react-router-dom';
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import {fetchAuthToken} from '../services/loginService'
+import {loginInfo} from '../services/loginService'
 
-class Login extends Component {
+class DemoLogin extends Component {
     constructor(props){
         super(props);
         this.state={
             email: '',
             password: '',
-            token:'',
-            navigate: false
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({ [e.target.name]: e.target.value})
-    }
-
-    // handleLogin = (e) => {
-    //     e.preventDefault();
-    //     fetchAuthToken()
-    //         .then(authToken => {
-    //             window.localStorage.setItem('AUTH-TOKEN', authToken);
-    //             this.setState({
-    //                 navigate: true
-    //             });
-    //         });
-    // }
-
-    /**
-     * 1. Prevent auto form submit
-     * 2. Fetch auth token
-     * 3. Set auth token in localStorage
-     * 4. Redirect to dashboard.
-     */
-    handleLogin = (e) => {
-         e.preventDefault();
-         fetchAuthToken()
-            .then(authToken => {
-                // Todo: Move AUTH-TOKEN to constants.
-                window.localStorage.setItem('AUTH-TOKEN', authToken);
-                window.location.href = '/dashboard'
-            });
-    }
 
     render(){
-        // if(this.state.navigate) {
-        //     return <Redirect to='/dashboard' push={true}/>
-        // }
         return(
             <div className="Login">
                 <h3>Login</h3><br />
-                <Form onSubmit={this.handleLogin}>
+                <Form >
                     <Form.Group controlId="email">
                         <Form.Label className="font-weight-bold">Email: </Form.Label>
                         <Form.Control 
@@ -80,4 +44,4 @@ class Login extends Component {
     
 }
 
-export default Login;
+export default DemoLogin;

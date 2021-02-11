@@ -27,43 +27,26 @@ class Search extends Component {
   }
 
 
-  handleSearch = (e) => {
-    e.preventDefault();
-    const { MRN } = this.state;
-    const errors = validate(MRN);
-    if (errors.length > 0) {
-      this.setState({ errors });
-      return;
-    }
-  };
-
-  // handleSubmit = ( e ) => {
+  // handleSearch = (e) => {
   //   e.preventDefault();
-  //   fetch('http://34.200.212.150/assocpath-webapi/api/dashboard/search', {
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json',
-  //               'Token' : 'd6f620f8-639f-4a12-a0f3-01ea3d0f8f69'},
-  //     body : JSON.stringify({
-  //       'Invoice_Num' : '9771458',
-  //       'MRN': '21070804153',
-  //       'Patient_First_Name' :'',
-  //       'Patient_Last_Name' : '',
-  //       'DateOfBirth' : '',
-  //       'Guarantor_Name' : '',
-  //       'DateOfService' : ''
-  //     })
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       this.setState({ results: data.data });
-  //     });
-  // }
+  //   const { MRN } = this.state;
+  //   const errors = validate(MRN);
+  //   if (errors.length > 0) {
+  //     this.setState({ errors });
+  //     return;
+  //   }
+  // };
 
   handleSubmit = (e) => {
     e.preventDefault();
     const searchParams = {
-      Invoice_Num: this.state.Invoice_Num
+      Invoice_Num: this.state.Invoice_Num,
+      MRN: this.state.MRN,
+      Patient_First_Name: this.state.Patient_First_Name,
+      Patient_Last_Name: this.state.Patient_Last_Name,
+      DateOfBirth: this.state.DateOfBirth,
+      Guarantor_Name: this.state.Guarantor_Name,
+      DateOfService: this.state.DateOfService,
     }; // construct from state 
     this.props.onSearch(searchParams);
   }

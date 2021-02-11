@@ -42,11 +42,15 @@
     padding: 60px 0;
   }
 
+  .Login h3 {
+    padding-left: 310px;
+  }
+
   .Login form {
     margin: 0 auto;
     max-width: 320px;
   }
-  .Login Button {
+  .Login button {
     background-color: lightgreen;
   }
 } 

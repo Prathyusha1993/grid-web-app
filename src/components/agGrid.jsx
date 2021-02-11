@@ -7,6 +7,7 @@ import { ColumnsToolPanelModule } from "@ag-grid-enterprise/column-tool-panel";
 import "@ag-grid-community/core/dist/styles/ag-grid.css";
 import "@ag-grid-community/core/dist/styles/ag-theme-alpine.css";
 import { fetchInvoices, fetchInvoiceDetails } from "../services/invoiceService";
+import CustomLoadingCellRenderer from './AgGridSpecific/CustomLoadingCellRenderer';
 
 class AgGrid extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class AgGrid extends Component {
         MenuModule,
         ColumnsToolPanelModule,
       ],
-      rowData: null,
+      rowData: [],
       columnDefs: [
         {
           headerName: "Invoice#",
@@ -229,11 +230,16 @@ class AgGrid extends Component {
             {
               headerName: "LP Rejection Code",
               field: "LP_Rej_Code",
-              minWidth: 150,
+              minWidth: 200,
             },
           ],
           defaultColDef: { flex: 1 },
         },
+        frameworkComponents: {
+          customLoadingCellRenderer: CustomLoadingCellRenderer,
+        },
+        loadingCellRenderer: 'customLoadingCellRenderer',
+        loadingCellRendererParams: { loadingMessage: 'One moment please...' },
         getDetailRowData: function (params) {
           fetchInvoiceDetails(
             params.data.Invoice_Num,
@@ -243,31 +249,27 @@ class AgGrid extends Component {
           });
         },
       },
-      detailRowData: null,
+      detailRowData: null
     };
   }
 
-  componentDidMount() {
-    this.fetchAndUpdateInvoicesInState();
-}
-
-componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     const searchParams = nextProps.searchParams;
-  this.fetchAndUpdateInvoicesInState(searchParams);
-}
+    this.fetchAndUpdateInvoicesInState(searchParams);
+  }
 
-fetchAndUpdateInvoicesInState = (searchParams) => {
-  fetchInvoices(searchParams)
-      .then(data => {
-        this.setState({ rowData: data.data });
-      });
-}
+  fetchAndUpdateInvoicesInState = (searchParams) => {
+    this.setState({ rowData : null});
+    fetchInvoices(searchParams).then((data) => {
+      this.setState({ rowData: data.data });
+    });
+  };
 
   onGridReady = (params) => {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.fetchAndUpdateInvoicesInState();
+    //this.fetchAndUpdateInvoicesInState();
   };
 
   render() {
@@ -291,6 +293,8 @@ fetchAndUpdateInvoicesInState = (searchParams) => {
               detailCellRendererParams={this.state.detailCellRendererParams}
               onGridReady={this.onGridReady}
               rowData={this.state.rowData}
+              loadingCellRenderer={this.state.loadingCellRenderer}
+              loadingCellRendererParams={this.state.loadingCellRendererParams}
             />
           </div>
         </div>
