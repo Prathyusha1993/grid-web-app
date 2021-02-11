@@ -87,7 +87,7 @@ class Login extends Component {
                             />
                         </Form.Group>
                         {this.state.isAuthenticationfailed === "YES" && (
-                            <div style={{ color: "re" }}>
+                            <div style={{ color: "red", display: "flex", justifyContent: "center" }}>
                                 Invalid credentials
                             </div>
                         )}

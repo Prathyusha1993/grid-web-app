@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 
-function validate(MRN) {
-    const errors = [];
-
-    if (MRN.length === 0) {
-        errors.push("atleast one field entry is required");
-    }
-    return errors;
-}
-
 class Search extends Component {
     constructor(props) {
         super(props);
@@ -22,19 +13,26 @@ class Search extends Component {
             DateOfBirth: "",
             Guarantor_Name: "",
             DateOfService: "",
-            results: [],
         };
     }
 
-    // handleSearch = (e) => {
-    //   e.preventDefault();
-    //   const { MRN } = this.state;
-    //   const errors = validate(MRN);
-    //   if (errors.length > 0) {
-    //     this.setState({ errors });
-    //     return;
-    //   }
-    // };
+
+    validateSearch = () => {
+      return (
+          this.state.Invoice_Num &&
+          this.state.Invoice_Num.length > 0 || 
+          this.state.Patient_First_Name &&
+          this.state.Patient_First_Name.length > 0 || 
+          this.state.Patient_Last_Name &&
+          this.state.Patient_Last_Name.length > 0 || 
+          this.state.DateOfBirth &&
+          this.state.DateOfBirth.length > 0 || 
+          this.state.Guarantor_Name &&
+          this.state.Guarantor_Name.length > 0 || 
+          this.state.DateOfService &&
+          this.state.DateOfService.length > 0 
+      );
+  };
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -46,7 +44,7 @@ class Search extends Component {
             DateOfBirth: this.state.DateOfBirth,
             Guarantor_Name: this.state.Guarantor_Name,
             DateOfService: this.state.DateOfService,
-        }; // construct from state
+        }; 
         this.props.onSearch(searchParams);
     };
 
@@ -65,11 +63,6 @@ class Search extends Component {
             <div className="container">
                 <div className="row justify-content-md-center">
                     <Form onSubmit={this.handleSubmit}>
-                        {/* {errors.map((error) => (
-            <p style={{ color: "red" }} key={error}>
-              Error: {error}
-            </p>
-          ))} */}
                         <Form.Row>
                             <Form.Group
                                 as={Col}
@@ -208,7 +201,7 @@ class Search extends Component {
                                 className="col-md-3 mb-3"
                             >
                                 <Form.Label> </Form.Label>
-                                <Button style={mystyle} type="submit">
+                                <Button style={mystyle} type="submit" disabled={!this.validateSearch()} >
                                     Search
                                 </Button>
                             </Form.Group>
