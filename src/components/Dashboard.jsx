@@ -21,6 +21,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <Header />
+                <br />
                 <Search onSearch={this.handleSearch} />
                 <AgGrid searchParams={this.state.searchParams} />
             </div>

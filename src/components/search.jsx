@@ -26,11 +26,13 @@ class Search extends Component {
           this.state.Patient_Last_Name &&
           this.state.Patient_Last_Name.length > 0 || 
           this.state.DateOfBirth &&
-          this.state.DateOfBirth.length > 0 || 
+          this.state.DateOfBirth.length > 0 ||  
           this.state.Guarantor_Name &&
           this.state.Guarantor_Name.length > 0 || 
           this.state.DateOfService &&
-          this.state.DateOfService.length > 0 
+          this.state.DateOfService.length > 0 || 
+          this.state.MRN &&
+          this.state.MRN.length > 0
       );
   };
 
