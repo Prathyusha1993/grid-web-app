@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button} from "react-bootstrap";
+//import Spinner from "react-bootstrap/Spinner";
 
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
             MRN: "",
-            errors: [],
             Invoice_Num: "",
             Patient_First_Name: "",
             Patient_Last_Name: "",
             DateOfBirth: "",
             Guarantor_Name: "",
             DateOfService: "",
+            loading: false
         };
     }
 
@@ -48,6 +49,10 @@ class Search extends Component {
             DateOfService: this.state.DateOfService,
         }; 
         this.props.onSearch(searchParams);
+        this.setState({ loading: true});
+        setTimeout(() => {
+            this.setState({ loading: false})
+        }, 2000)
     };
 
     handleChange = (e) => {
@@ -55,13 +60,13 @@ class Search extends Component {
     };
 
     render() {
-        const { errors } = this.state;
         const mystyle = {
             position: "relative",
             top: "45%",
             width: "200px",
             background: '#4CAF50'
         };
+        const {loading} = this.state;
         return (
             <div className="container">
                 <div className="row justify-content-md-center">
@@ -205,7 +210,9 @@ class Search extends Component {
                             >
                                 <Form.Label> </Form.Label>
                                 <Button style={mystyle} type="submit" disabled={!this.validateSearch()} >
-                                    Search
+                                    {loading && <i className="fa fa-refresh fa-spin"></i>}
+                                    {loading && <span>Loading...</span>}
+                                    {!loading && <span>Search</span>}
                                 </Button>
                             </Form.Group>
                         </Form.Row>

@@ -298,13 +298,6 @@ class AgGrid extends Component {
                     ],
                     defaultColDef: { flex: 1 },
                 },
-                frameworkComponents: {
-                    customLoadingCellRenderer: CustomLoadingCellRenderer,
-                },
-                loadingCellRenderer: "customLoadingCellRenderer",
-                loadingCellRendererParams: {
-                    loadingMessage: "One moment please...",
-                },
                 getDetailRowData: function (params) {
                     fetchInvoiceDetails(
                         params.data.Invoice_Num,
@@ -315,6 +308,13 @@ class AgGrid extends Component {
                 },
             },
             detailRowData: null,
+            frameworkComponents: {
+                customLoadingCellRenderer: CustomLoadingCellRenderer,
+            },
+            loadingCellRenderer: "customLoadingCellRenderer",
+            loadingCellRendererParams: {
+                loadingMessage: "One moment please...",
+            },
         };
     }
 
@@ -324,7 +324,7 @@ class AgGrid extends Component {
     }
 
     fetchAndUpdateInvoicesInState = (searchParams) => {
-        this.setState({ rowData: null });
+        //this.setState({ rowData: null });
         fetchInvoices(searchParams).then((data) => {
             this.setState({ rowData: data.data });
         });
@@ -362,6 +362,7 @@ class AgGrid extends Component {
                             loadingCellRendererParams={
                                 this.state.loadingCellRendererParams
                             }
+                            frameworkComponents={this.state.frameworkComponents}
                         />
                     </div>
                 </div>
