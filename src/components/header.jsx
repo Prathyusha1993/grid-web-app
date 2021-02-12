@@ -12,12 +12,12 @@ function Header() {
         <div>
             <Navbar
                 class="navbar navbar-light"
-                style={{ background: "#4CAF50" }}
+                style={{ background: "#4CAF50", }}
             >
-                <Navbar.Brand>PathGroup</Navbar.Brand>
+                <Navbar.Brand style={{ color: 'white' }}>PathGroup</Navbar.Brand>
                 {isUserLoggedIn() && (
                     <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text className="font-weight-bold">
+                        <Navbar.Text className="font-weight-bold" style={{ color: 'white' }}>
                             Email: {getLoggedInUserEmail()}
                         </Navbar.Text>
                         <Navbar.Text>

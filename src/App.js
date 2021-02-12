@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import "./App.css";
 import React, { Component } from "react";
-import Login from "./components/login";
+import Login from "./components/Login";
 import {
     Switch,
     Route,

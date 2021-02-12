@@ -60,6 +60,7 @@ class Search extends Component {
             position: "relative",
             top: "45%",
             width: "200px",
+            background: '#4CAF50'
         };
         return (
             <div className="container">

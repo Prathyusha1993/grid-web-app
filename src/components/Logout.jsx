@@ -13,7 +13,7 @@ class Logout extends Component {
 
     render() {
         return (
-            <a style={{ paddingLeft: "20px" }} href="#logout" onClick={this.handleLogout}>
+            <a style={{ paddingLeft: "20px", color: 'white' }} href="#logout" onClick={this.handleLogout}>
                 Logout
             </a>
         );

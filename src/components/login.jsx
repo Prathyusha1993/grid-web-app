@@ -1,6 +1,6 @@
 import React, { useState, Component } from "react";
 import { Form } from "react-bootstrap";
-import Header from "./header";
+import Header from "./Header";
 import { authenticateAndFetchUserDetails } from "../services/loginService";
 
 class Login extends Component {
@@ -31,7 +31,6 @@ class Login extends Component {
                 this.setState({
                     isAuthenticationfailed: "NO",
                 });
-                // Todo: Move AUTH-TOKEN to constants.
                 window.localStorage.setItem(
                     "AUTH-TOKEN",
                     userDetails.AuthToken
@@ -95,7 +94,7 @@ class Login extends Component {
                             type="submit"
                             className="btn-lg btn-block"
                             onClick={this.handleLogin}
-                            style={{ background: "#4CAF50" }}
+                            style={{ background: "#4CAF50", color: 'white' }}
                             disabled={!this.validateForm()}
                         >
                             Sign In
